@@ -1,36 +1,38 @@
-function passaseguent(objecterebut){
+function passaseguent(objecterebut) {
     let idObjPregAct = objecterebut.parentElement.id;
-    let objPregAct = document.getElementById(idObjPregAct);
+    //let objPregAct = document.getElementById(idObjPregAct);
     let colArticles = document.getElementsByTagName("article");
     let idObjPregSeg;
 
-    for (let i = 0; i < colArticles.length; i++){
-        if (colArticles[i].id == idObjPregAct){
-            idObjPregSeg = colArticles[i+1].id;
+    for (let i = 0; i < colArticles.length; i++) {
+        if (colArticles[i].id == idObjPregAct) {
+            idObjPregSeg = colArticles[i + 1].id;
             break;
         };
     }
-    let objPregSeg = document.getElementById(idObjPregSeg);
-    objPregAct.classList.remove("elementVisible");
-    objPregAct.classList.add("elementOcult");
-    objPregSeg.classList.add("elementVisible");
-    objPregSeg.classList.remove("elementOcult");
-  }
-  function passaAnterior(objecterebut){
+    amagaElement(idObjPregAct)
+    mostraElement(idObjPregSeg);
+}
+function passaAnterior(objecterebut) {
     let idObjPregAct = objecterebut.parentElement.id;
-    let objPregAct = document.getElementById(idObjPregAct);
+    //let objPregAct = document.getElementById(idObjPregAct);
     let colArticles = document.getElementsByTagName("article");
     let idObjPregAnt;
 
-    for (let i = 0; i < colArticles.length; i++){
-        if (colArticles[i].id == idObjPregAct){
-            idObjPregAnt = colArticles[i-1].id;
+    for (let i = 0; i < colArticles.length; i++) {
+        if (colArticles[i].id == idObjPregAct) {
+            idObjPregAnt = colArticles[i - 1].id;
             break;
         };
     }
-    let objPregAnt = document.getElementById(idObjPregAnt);
-    objPregAct.classList.remove("elementVisible");
-    objPregAct.classList.add("elementOcult");
-    objPregAnt.classList.add("elementVisible");
-    objPregAnt.classList.remove("elementOcult");
-  }
+    amagaElement(idObjPregAct)
+    mostraElement(idObjPregAnt);
+}
+function mostraElement(idRebut) {
+    document.getElementById(idRebut).classList.add("elementVisible");
+    document.getElementById(idRebut).classList.remove("elementOcult");
+}
+function amagaElement(idRebut) {
+    document.getElementById(idRebut).classList.remove("elementVisible");
+    document.getElementById(idRebut).classList.add("elementOcult");
+}
